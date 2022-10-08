@@ -19,12 +19,18 @@ function App() {
     setTodos(todos.filter((todo, index) => index !== row));
   }
 
+  const deleteAll = () => {
+    setTodos([]);
+  }
+
   return (
     <div className="App">
       <input placeholder="Description" name="description" value={todo.description} onChange={inputChanged} />
       <input placeholder="Date" name="date" value={todo.date} onChange={inputChanged}/>
       <button onClick={addTodo}>Add</button>
+      <button onClick={deleteAll}>Delete all</button>
       <TodoTable todos={todos} deleteTodo={deleteTodo} />
+      
     </div>
   );
 }
